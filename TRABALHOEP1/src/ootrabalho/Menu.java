@@ -32,7 +32,7 @@ public class Menu{
 	                    menuDisciplina(scanner, disciplinas);
 	                    break;
 	                case 3:
-	                    System.out.println("Consulta de notas ainda não implementada.");
+	                	menuAvaliacao(scanner, disciplinas);
 	                    break;
 	                case 0:
 	                    System.out.println("Saindo do sistema...");
@@ -280,6 +280,82 @@ public static void menuDisciplina(Scanner scanner,  ArrayList<Disciplina> discip
 
     } while (opcaoDisc != 0);
 }
+
+
+
+
+
+
+    public static void menuAvaliacao(Scanner scanner, ArrayList<Disciplina> disciplinas) {
+        System.out.println("\n--- MODO AVALIAÇÃO ---");
+        System.out.print("Código da disciplina: ");
+        String codDisc = scanner.nextLine();
+
+        Disciplina disciplina = null;
+        for (Disciplina d : disciplinas) {
+            if (d.getCodigo().equalsIgnoreCase(codDisc)) {
+                disciplina = d;
+                break;
+            }
+        }
+
+        if (disciplina == null) {
+            System.out.println("Disciplina não encontrada.");
+            return;
+        }
+
+        System.out.print("Horário da turma: ");
+        String horario = scanner.nextLine();
+
+        Turma turma = null;
+        for (Turma t : disciplina.getTurmas()) {
+            if (t.getHorario().equalsIgnoreCase(horario)) {
+                turma = t;
+                break;
+            }
+        }
+
+        if (turma == null) {
+            System.out.println("Turma não encontrada.");
+            return;
+        }
+
+        for (Aluno aluno : turma.getAlunosMatriculados()) {
+            System.out.println("\nLançando avaliação para: " + aluno.getNome());
+
+            System.out.print("P1: ");
+            double p1 = scanner.nextDouble();
+
+            System.out.print("P2: ");
+            double p2 = scanner.nextDouble();
+
+            System.out.print("P3: ");
+            double p3 = scanner.nextDouble();
+
+            System.out.print("Listas: ");
+            double listas = scanner.nextDouble();
+
+            System.out.print("Seminário: ");
+            double seminario = scanner.nextDouble();
+
+            System.out.print("Frequência (%): ");
+            double frequencia = scanner.nextDouble();
+            scanner.nextLine(); // limpa o buffer
+
+            Avaliacao av = new Avaliacao(p1, p2, p3, listas, seminario, frequencia, turma.getFormaAvaliacao());
+            turma.getAvaliacoes().put(aluno, av);
+
+            System.out.println("Média: " + av.getMedia());
+            System.out.println("Frequência: " + av.getFrequencia() + "%");
+            System.out.println("Status: " + av.getStatus());
+        }
+
+        System.out.println("\nAvaliações lançadas com sucesso!");
+    }
+
+
+
+
 public static Disciplina encontrarDisciplina(ArrayList<Disciplina> disciplinas, String codigo) {
     for (Disciplina d : disciplinas) {
         if (d.getCodigo().equalsIgnoreCase(codigo)) {
