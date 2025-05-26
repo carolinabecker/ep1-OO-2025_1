@@ -9,7 +9,7 @@ public class Turma {
     private String semestre;
     private String formaAvaliacao;
     private boolean presencial;
-    private String sala; // se for remota, será "Remota" ou null
+    private String sala; 
     private String horario;
     private int capacidadeMaxima;
     private ArrayList<Aluno> alunosMatriculados;
@@ -75,6 +75,15 @@ public class Turma {
     public boolean temHorarioConflitante(String outroHorario) {
         return this.horario.equalsIgnoreCase(outroHorario);
     }
+    
+    public boolean removerAluno(Aluno aluno) {
+        if (alunosMatriculados.contains(aluno)) {
+            alunosMatriculados.remove(aluno);
+            return true;
+        }
+        return false;
+    }
+
 
 
 public String getProfessorResponsavel() {

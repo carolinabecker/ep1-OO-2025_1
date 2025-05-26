@@ -37,6 +37,8 @@ public class Menu{
 	                case 0:
 	                    System.out.println("Saindo do sistema...");
 	                    break;
+	                    
+
 	                default:
 	                    System.out.println("Opção inválida.");
 	            }
@@ -54,6 +56,8 @@ public class Menu{
 	        System.out.println("1 - Cadastrar Aluno");
 	        System.out.println("2 - Listar Alunos");
 	        System.out.println("3 - Matricular em Turma");
+	        System.out.println("4 - Trancar disciplina");
+	        System.out.println("5 - Trancar semestre");
 	        System.out.println("0 - Voltar");
 	        System.out.print("Opção: ");
 	        opcao = scanner.nextInt();
@@ -122,7 +126,7 @@ public class Menu{
 	                    break;
 	                }
 
-	                // Checar limite de disciplinas se for especial
+	                
 	                if (alunoBuscado instanceof AlunoEspecial) {
 	                    AlunoEspecial ae = (AlunoEspecial) alunoBuscado;
 	                    if (ae.getDisciplinasMatriculadas().size() >= 2) {
@@ -134,6 +138,70 @@ public class Menu{
 
 	                turmaEscolhida.matricularAluno(alunoBuscado);
 	                break;
+	            case 4:
+	                System.out.print("Digite a matrícula do aluno: ");
+	                String matriculaDisc = scanner.nextLine();
+	                Aluno alunoDisc = cadastro.buscarAlunoPorMatricula(matriculaDisc);
+
+	                if (alunoDisc == null) {
+	                    System.out.println("Aluno não encontrado.");
+	                    break;
+	                }
+
+	                System.out.print("Código da disciplina a ser trancada: ");
+	                String codTrancar = scanner.nextLine();
+	                Disciplina disciplinaTrancar = encontrarDisciplina(disciplinas, codTrancar);
+
+	                if (disciplinaTrancar == null) {
+	                    System.out.println("Disciplina não encontrada.");
+	                    break;
+	                }
+
+	                System.out.print("Horário da turma: ");
+	                String horarioTrancar = scanner.nextLine();
+
+	                Turma turmaRemover = null;
+	                for (Turma t : disciplinaTrancar.getTurmas()) {
+	                    if (t.getHorario().equalsIgnoreCase(horarioTrancar)) {
+	                        turmaRemover = t;
+	                        break;
+	                    }
+	                }
+
+	                if (turmaRemover != null && turmaRemover.removerAluno(alunoDisc)) {
+	                    System.out.println("Aluno removido da turma com sucesso.");
+	                    if (alunoDisc instanceof AlunoEspecial) {
+	                        ((AlunoEspecial) alunoDisc).removerDisciplina(codTrancar);
+	                    }
+	                } else {
+	                    System.out.println("Aluno não está matriculado nessa turma.");
+	                }
+	                break;
+	                
+	            case 5:
+	                System.out.print("Digite a matrícula do aluno: ");
+	                String matriculaSemestre = scanner.nextLine();
+	                Aluno alunoSemestre = cadastro.buscarAlunoPorMatricula(matriculaSemestre);
+
+	                if (alunoSemestre == null) {
+	                    System.out.println("Aluno não encontrado.");
+	                    break;
+	                }
+
+	                for (Disciplina d : disciplinas) {
+	                    for (Turma t : d.getTurmas()) {
+	                        t.removerAluno(alunoSemestre); // remove o aluno de todas as turmas
+	                    }
+	                }
+
+	                if (alunoSemestre instanceof AlunoEspecial) {
+	                    ((AlunoEspecial) alunoSemestre).limparDisciplinas();
+	                }
+
+	                System.out.println("Aluno foi removido de todas as turmas. Semestre trancado.");
+	                break;
+
+
 
 	            case 0:
 	                System.out.println("Voltando ao menu principal...");
@@ -340,7 +408,7 @@ public static void menuDisciplina(Scanner scanner,  ArrayList<Disciplina> discip
 
             System.out.print("Frequência (%): ");
             double frequencia = scanner.nextDouble();
-            scanner.nextLine(); // limpa o buffer
+            scanner.nextLine(); 
 
             Avaliacao av = new Avaliacao(p1, p2, p3, listas, seminario, frequencia, turma.getFormaAvaliacao());
             turma.getAvaliacoes().put(aluno, av);

@@ -18,7 +18,7 @@ public class AlunoEspecial extends Aluno {
             return false;
         }
         disciplinasMatriculadas.add(disciplina);
-        presencas.add(false); // presença começa como false
+        presencas.add(false); 
         System.out.println("Matriculado na disciplina: " + disciplina);
         return true;
     }
@@ -40,8 +40,19 @@ public class AlunoEspecial extends Aluno {
                 " | Presença: " + (presencas.get(i) ? "Sim" : "Não"));
         }
     }
+    
+    public void removerDisciplina(String codigoDisciplina) {
+        disciplinasMatriculadas.remove(codigoDisciplina);
+    }
 
-    // Sobrescrevendo o método listar para indicar que é especial
+    
+
+    public void limparDisciplinas() {
+        disciplinasMatriculadas.clear();
+    }
+
+
+   
     @Override
     void listar() {
         System.out.println(getNome() + " - " + getMatricula() + " - " + getCurso() + " [ALUNO ESPECIAL]");
@@ -51,7 +62,7 @@ public class AlunoEspecial extends Aluno {
     }
 
 	public void adicionarDisciplina(String codigo) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
