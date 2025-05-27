@@ -30,7 +30,7 @@ para compilar.
 3. **Execução:**
  > digite: 
  >  cd ..\bin
- > depois digite
+ > depois digite:
  > java ootrabalho.Menu
 
 4. **Estrutura de Pastas:**  
@@ -53,20 +53,20 @@ para compilar.
 
 ## Vídeo de Demonstração
 
-- [Inserir o link para o vídeo no YouTube/Drive aqui]
-
+-https://youtu.be/iBIjK53ivL4?si=aqrWdJ1aivw__FUY
 ---
 
 ## Prints da Execução
 
 1. Menu Principal:  
-   ![Inserir Print 1](caminho/do/print1.png)
+  ![IMG_5834](https://github.com/user-attachments/assets/808ab8bd-5608-423a-8dd2-093534ce74f1)
 
 2. Cadastro de Aluno:  
-   ![Inserir Print 2](caminho/do/print2.png)
+   ![IMG_5835](https://github.com/user-attachments/assets/c0940811-521f-4701-9798-d942b920f438)
+
 
 3. Relatório de Frequência/Notas:  
-   ![Inserir Print 3](caminho/do/print3.png)
+  ![IMG_5836](https://github.com/user-attachments/assets/e1b7fe4f-d278-4cf3-934e-23c8c260d15f)
 
 ---
 
@@ -77,7 +77,6 @@ para compilar.
 - [ ] Matrícula de alunos em turmas, respeitando vagas e pré-requisitos
 - [ ] Lançamento de notas e controle de presença
 - [ ] Cálculo de média final e verificação de aprovação/reprovação
-- [ ] Relatórios de desempenho acadêmico por aluno, turma e disciplina
 - [ ] Tratamento de duplicidade de matrículas
 - [ ] Uso de herança, polimorfismo e encapsulamento
 
