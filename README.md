@@ -32,7 +32,7 @@ para compilar.
  > java ootrabalho.Menu
 
 4. **Estrutura de Pastas:**  
-   > TRABALHOEP1
+    TRABALHOEP1
          > src
               >ootrabalho
                   > Aluno.java
