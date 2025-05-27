@@ -27,8 +27,10 @@ O enunciado do trabalho pode ser encontrado aqui:
 para compilar.
 
 
-3. **Execução:**  
+3. **Execução:**
+ > digite: 
  >  cd ..\bin
+ > depois digite
  > java ootrabalho.Menu
 
 4. **Estrutura de Pastas:**  
@@ -76,7 +78,6 @@ para compilar.
 - [ ] Lançamento de notas e controle de presença
 - [ ] Cálculo de média final e verificação de aprovação/reprovação
 - [ ] Relatórios de desempenho acadêmico por aluno, turma e disciplina
-- [ ] Persistência de dados em arquivos (.txt ou .csv)
 - [ ] Tratamento de duplicidade de matrículas
 - [ ] Uso de herança, polimorfismo e encapsulamento
 
@@ -90,4 +91,4 @@ para compilar.
 
 ## Contato
 
-- [Opcional: E-mail pessoal do aluno.]
+- 
