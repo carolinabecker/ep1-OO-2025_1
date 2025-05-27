@@ -18,17 +18,34 @@ O enunciado do trabalho pode ser encontrado aqui:
 
 ## Instruções para Compilação e Execução
 
-1. **Compilação:**  
-   [Descrever aqui como compilar o projeto. Exemplo: `javac Main.java` ou o script usado]
+1. **Compilação:**
 
-2. **Execução:**  
-   [Descrever aqui como executar o projeto. Exemplo: `java Main` ou o script usado]
+   No terminal, navegue até a pasta 'src' do projeto
+   exemplo windows: >    cd C:\Users\usuario\git\repository\TRABALHOEP1\src
+   Depois digite:
+    >   javac -d ../bin ootrabalho\Menu.java
+para compilar.
 
-3. **Estrutura de Pastas:**  
-   [Descrever aqui as principais pastas do projeto]
+
+3. **Execução:**  
+ >  cd ..\bin
+ > java ootrabalho.Menu
+
+4. **Estrutura de Pastas:**  
+   > TRABALHOEP1
+         > src
+              >ootrabalho
+                  > Aluno.java
+                  > AlunoEspecial.java
+                  > Avaliacao.java
+                  > Cadastro.java
+                  > Disciplina.java
+                  > Matricular.java
+                  > Menu.java
+                  > turma.java
 
 3. **Versão do JAVA utilizada:**  
-   [Descrever aqui como versão do JAVA utilizada no projeto. Sugestão: `java 21`]
+   java version "21.0.6" 2025-01-21 LTS
 
 ---
 
@@ -67,7 +84,7 @@ O enunciado do trabalho pode ser encontrado aqui:
 
 ## Observações (Extras ou Dificuldades)
 
-- [Espaço para o aluno comentar qualquer funcionalidade extra que implementou, dificuldades enfrentadas, ou considerações importantes.]
+- 
 
 ---
 
